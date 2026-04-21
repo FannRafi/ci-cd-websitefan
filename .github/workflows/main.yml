@@ -20,8 +20,8 @@ jobs:
           chmod 600 ~/.ssh/tes_server
           ssh-keyscan -p 8022 -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
 
-       - name: Deploy to Server
-         run: |
+      - name: Deploy to Server
+        run: |
           rsync -avz --delete \
           -e "ssh -p 8022 -i ~/.ssh/tes_server_polindra" \
           "./" \
